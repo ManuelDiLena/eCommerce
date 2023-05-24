@@ -12,8 +12,10 @@ import Typography from '@material-ui/core/Typography';
 import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
 import ExpandMoreRoundedIcon from '@material-ui/icons/ExpandMoreRounded';
 import FavoriteBorderRoundedIcon from '@material-ui/icons/FavoriteBorderRounded';
+import accounting from 'accounting';
 
 export default function Product() {
+    
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
@@ -30,7 +32,7 @@ export default function Product() {
                         variant='h5'
                         color='textSecondary'
                     >
-                        {50}
+                        {accounting.formatMoney(50)}
                     </Typography>
                 }
                 title='MacBook Pro'
