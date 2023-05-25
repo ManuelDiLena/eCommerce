@@ -22,14 +22,14 @@ export default function Navbar() {
                     </IconButton>
                     <div className={classes.grow} />
                     <div className={classes.btns}>
-                        <Button variant='outlined' className={classes.btnLog}>
-                            <strong>Sign In</strong>
-                        </Button>
                         <IconButton aria-label='show cart items' color='inherit'>
                             <Badge badgeContent={2} color='secondary'>
                                 <ShoppingCartRoundedIcon fontSize='large' className={classes.btnCart} />
                             </Badge>
-                        </IconButton>  
+                        </IconButton>
+                        <Button variant='outlined' className={classes.btnLog}>
+                            <strong>Sign In</strong>
+                        </Button> 
                     </div>
                  </Toolbar>
             </AppBar>
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     btnLog: {
         color: '#D8D7C3',
         borderColor: '#D8D7C3',
-        marginRight: theme.spacing(3),
+        marginLeft: theme.spacing(3),
     },
     btnCart: {
         color: '#7DB9B3',
