@@ -40,7 +40,7 @@ export default function Product() {
             />
             <CardMedia
                 className={classes.media}
-                image='https://cdn.vox-cdn.com/thumbor/fwxkgXqDQh3HC9gCe5iR1ZYzK7k=/0x0:2040x1360/2000x1333/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/24371431/236492_MacBook_Pro_16__2023__AKrales_0114.jpg'
+                image='https://www.hp.com/wcsstore/hpusstore/Treatment/mdps/Q3FY22_omen17_LT/hero_omen17_3.png'
                 title='MacBook Pro'
             />
             <CardContent>
@@ -52,25 +52,10 @@ export default function Product() {
                 <IconButton aria-label='Add to Cart' className={classes.btns}>
                     <AddShoppingCartRoundedIcon />
                 </IconButton>
-                <IconButton aria-label='add to favorites' className={classes.btns}>
+                <IconButton aria-label='Add to Favorites' className={classes.btns}>
                     <FavoriteBorderRoundedIcon />
                 </IconButton>
-                <IconButton
-                    className={clsx(classes.expand, {
-                        [classes.expandOpen]: expanded,
-                    })}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label='show more'
-                >
-                    <ExpandMoreRoundedIcon />
-                </IconButton>
             </CardActions>
-            <Collapse in={expanded} timeout='auto' unmountOnExit>
-                <CardContent>
-                    <Typography>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates id alias nulla eius eos. Dicta recusandae officia, enim ea quibusdam voluptatum illum, architecto saepe sit rem cupiditate tempora, eius ex!</Typography>
-                </CardContent>
-            </Collapse>
         </Card>
     );
 }
@@ -88,15 +73,5 @@ const useStyles = makeStyles((theme) => ({
     },
     btns: {
         color: '#166678',
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
+    }
 }));
