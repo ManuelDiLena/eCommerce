@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
@@ -43,9 +42,9 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: '6rem',
     },
     appBar: {
-        backgroundColor: '#0E2E3B',
+        backgroundColor: '#146C78',
         boxShadow: 'none',
-        color: '#D8D7C3',
+        color: '#EFEDE7',
     },
     grow: {
         flexGrow: 1,
@@ -54,12 +53,12 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: theme.spacing(2),
     },
     btnLog: {
-        color: '#D8D7C3',
-        borderColor: '#D8D7C3',
+        color: '#EFEDE7',
+        borderColor: '#EFEDE7',
         marginLeft: theme.spacing(3),
     },
     btnCart: {
-        color: '#7DB9B3',
+        color: '#7DCE94',
     },
     logo: {
         height: '60px',

@@ -83,7 +83,7 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '60%', // 16:9
     },
     btns: {
-        color: '#166678',
+        color: '#0E91A1',
     },
     expand: {
         transform: 'rotate(0deg)',
