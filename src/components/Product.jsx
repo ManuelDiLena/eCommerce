@@ -19,6 +19,7 @@ export default function Product({product : {id, name, brand, image, price, descr
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
 
+    // Function to expand the card and show the product info
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
