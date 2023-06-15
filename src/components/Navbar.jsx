@@ -8,10 +8,12 @@ import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import logo from '../images/logo.png'
 import { Badge } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
 
 export default function Navbar() {
 
     const classes = useStyles();
+    const [{cart}, dispatch ] = useStateValue();
 
     return (
         <div className={classes.root}>
@@ -26,7 +28,7 @@ export default function Navbar() {
                     <div className={classes.btns}>
                         <Link to={`/cart`}>
                             <IconButton aria-label='show cart items' color='inherit'>
-                                <Badge badgeContent={2} color='secondary'>
+                                <Badge badgeContent={cart?.length} color='secondary'>
                                     <ShoppingCartRoundedIcon fontSize='large' className={classes.btnCart} />
                                 </Badge>
                             </IconButton>
