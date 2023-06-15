@@ -7,6 +7,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import logo from '../images/logo.png'
 import { Badge } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
@@ -16,16 +17,20 @@ export default function Navbar() {
         <div className={classes.root}>
             <AppBar position='fixed' className={classes.appBar}>
                 <Toolbar>
-                    <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
-                        <img src={logo} alt='logo' className={classes.logo} />
-                    </IconButton>
+                    <Link to={`/`}>
+                        <IconButton edge='start' className={classes.menuButton} color='inherit' aria-label='menu'>
+                            <img src={logo} alt='logo' className={classes.logo} />
+                        </IconButton>
+                    </Link>
                     <div className={classes.grow} />
                     <div className={classes.btns}>
-                        <IconButton aria-label='show cart items' color='inherit'>
-                            <Badge badgeContent={2} color='secondary'>
-                                <ShoppingCartRoundedIcon fontSize='large' className={classes.btnCart} />
-                            </Badge>
-                        </IconButton>
+                        <Link to={`/cart`}>
+                            <IconButton aria-label='show cart items' color='inherit'>
+                                <Badge badgeContent={2} color='secondary'>
+                                    <ShoppingCartRoundedIcon fontSize='large' className={classes.btnCart} />
+                                </Badge>
+                            </IconButton>
+                        </Link>
                         <Button variant='outlined' className={classes.btnLog}>
                             <strong>Sign In</strong>
                         </Button> 
