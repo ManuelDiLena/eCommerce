@@ -9,12 +9,13 @@ export const actionTypes = {
 
 // Function to add the prices of the products
 export const getCartTotal = (cart) => {
-    cart?.reduce((acc, item) => item.price + acc, 0)
+    const totalPrice = cart?.reduce((acc, item) => acc + item.price, 0)
+    return totalPrice
 }
 
-const reducer = (state, action) => {
-    console.log(action);
-    switch(action.type) {
+function reducer(state, action) {
+    console.log(action)
+    switch (action.type) {
         case 'ADD_TO_CART':
             return {
                 ...state,
@@ -32,8 +33,8 @@ const reducer = (state, action) => {
                 ...state,
                 cart: newCart
             }
-        default: return state;
-    } 
+        default: return state
+    }
 }
 
 export default reducer;
