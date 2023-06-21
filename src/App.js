@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import ProductGrid from './components/ProductGrid';
 import ShoppingPage from './components/ShoppingPage';
@@ -29,7 +29,7 @@ function App() {
 
     return (
         <div className="App">
-            <BrowserRouter>
+            <HashRouter>
                 <Navbar />
                 <Routes>
                     <Route path='/signin' element={<SignIn/>} />
@@ -38,7 +38,7 @@ function App() {
                     <Route path='/checkout' element={<Checkout/>} />
                     <Route exact path='/' element={<ProductGrid/>} />                
                 </Routes>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     );
 }
