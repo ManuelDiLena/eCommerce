@@ -6,14 +6,33 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import logo from '../images/logo.png'
-import { Badge } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Badge, Typography } from '@material-ui/core';
+import { Link, useNavigate } from 'react-router-dom';
 import { useStateValue } from '../StateProvider';
+import { auth } from '../firebase';
+import { actionTypes } from '../reducer';
 
 export default function Navbar() {
 
     const classes = useStyles();
-    const [{cart}, dispatch ] = useStateValue();
+    const [{cart, user}, dispatch ] = useStateValue();
+    const navigate = useNavigate();
+
+    // Function to close user session
+    const handleAuth = () => {
+        if (user) {
+            auth.signOut()
+            dispatch({
+                type: actionTypes.EMPTY_CART,
+                cart: [],
+            })
+            dispatch({
+                type: actionTypes.SET_USER,
+                user: null,
+            })
+            navigate('/')
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -25,6 +44,9 @@ export default function Navbar() {
                         </IconButton>
                     </Link>
                     <div className={classes.grow} />
+                    <Typography variant='h6' color='textPrimary' component='p'>
+                        Hi {user ? user.email : 'Guest'}
+                    </Typography>
                     <div className={classes.btns}>
                         <Link to={`/cart`}>
                             <IconButton aria-label='show cart items' color='inherit'>
@@ -34,8 +56,8 @@ export default function Navbar() {
                             </IconButton>
                         </Link>
                         <Link to={`/signin`}>
-                            <Button variant='outlined' className={classes.btnLog}>
-                                <strong>Sign In</strong>
+                            <Button variant='outlined' className={classes.btnLog} onClick={handleAuth}>
+                                <strong>{user ? 'Sign Out' : 'Sign In'}</strong>
                             </Button>
                         </Link> 
                     </div>
